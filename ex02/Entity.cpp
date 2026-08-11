@@ -1,6 +1,6 @@
 #include "Entity.hpp"
 
-Entity::Entity(std::string name, int maxHp): m_name(std::move(name)),m_maxHp(maxHp)  {};
+Entity::Entity(std::string name, int maxHp): m_name(std::move(name)),m_maxHp(maxHp), m_currentHp(maxHp)  {};
 
 // Entity.cpp: the invariant is enforced here, and every hit is logged
 void Entity::takeDamage(int amount){
@@ -11,3 +11,12 @@ void Entity::takeDamage(int amount){
 }
 void Entity::heal(int amount){ m_currentHp = std::min(m_maxHp, m_currentHp + amount); }
 
+bool Entity::isAlive() const{
+    return m_currentHp > 0;
+};          // currentHp > 0
+int Entity::currentHp() const{
+    return m_currentHp;
+};
+int Entity::maxHp() const{
+    return m_maxHp;
+};
