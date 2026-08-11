@@ -19,4 +19,6 @@ int main(){
     for (const auto& e : party)                 // single loop, base type only
         std::cout << e->describe() << '\n';
     // unique_ptr frees every element here; with raw Entity* you'd delete in a loop
+
+    return 0;
 }
